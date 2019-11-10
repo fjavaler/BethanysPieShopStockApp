@@ -45,9 +45,9 @@ namespace BethanysPieShopStockApp
       //PriceEntry.SetBinding(Entry.TextProperty, piePriceBinding);
     }
 
-    //private void Button_Clicked(object sender, EventArgs eventArgs)
-    //{
-    //  pie.Price++;
-    //}
+    private void Button_Clicked(object sender, EventArgs eventArgs)
+    {
+      CherryPie.Price++;
+    }
   }
 }
