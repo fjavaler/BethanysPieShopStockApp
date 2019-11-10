@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:BethanysPieShopStockApp.Model"
+    mc:Ignorable="d"
+    x:Class="BethanysPieShopStockApp.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <model:Pie Id="1" PieName="Apple pie" Price="20" x:Key="TheApplePie"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid Margin="20,50,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Pie Name label and entry-->
+            <Label Grid.Row="0" Grid.Column="0" Text="Pie Name"/>
+            <Entry Grid.Row="0" Grid.Column="1" x:Name="NameEntry"
+                   Text="{Binding PieName, Source={StaticResource TheApplePie}}"/>
+
+            <!--Price label and entry-->
+            <Label Grid.Row="1" Grid.Column="0" Text="Price"/>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="PriceEntry"
+                   Text="{Binding Price, Source={StaticResource TheApplePie}}"/>
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Add pie"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
