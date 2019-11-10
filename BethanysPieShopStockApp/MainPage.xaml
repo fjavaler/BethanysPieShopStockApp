@@ -8,12 +8,12 @@
     mc:Ignorable="d"
     x:Class="BethanysPieShopStockApp.MainPage">
     <ContentPage.Resources>
-        <ResourceDictionary>
+        <!--<ResourceDictionary>
             <model:Pie Id="1" PieName="Apple pie" Price="20" x:Key="TheApplePie"/>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
     </ContentPage.Resources>
     <StackLayout>
-        <Grid Margin="20,50,20,10">
+        <Grid Margin="20,50,20,10" x:Name="MainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
@@ -28,12 +28,12 @@
             <!--Pie Name label and entry-->
             <Label Grid.Row="0" Grid.Column="0" Text="Pie Name"/>
             <Entry Grid.Row="0" Grid.Column="1" x:Name="NameEntry"
-                   Text="{Binding PieName, Source={StaticResource TheApplePie}}"/>
+                   Text="{Binding PieName, Mode=OneWay}"/>
 
             <!--Price label and entry-->
             <Label Grid.Row="1" Grid.Column="0" Text="Price"/>
             <Entry Grid.Row="1" Grid.Column="1" x:Name="PriceEntry"
-                   Text="{Binding Price, Source={StaticResource TheApplePie}}"/>
+                   Text="{Binding Price, Mode=TwoWay}"/>
             <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Add pie"/>
         </Grid>
     </StackLayout>

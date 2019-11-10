@@ -9,19 +9,30 @@ using Xamarin.Forms;
 
 namespace BethanysPieShopStockApp
 {
+  /// <summary>
+  /// Class.
+  /// </summary>
   // Learn more about making custom code visible in the Xamarin.Forms previewer
   // by visiting https://aka.ms/xamarinforms-previewer
   [DesignTimeVisible(false)]
   public partial class MainPage : ContentPage
   {
+    // Fields
+    public Pie CherryPie { get; set; }
+
+    /// <summary>
+    /// Constructor.
+    /// </summary>
     public MainPage()
     {
       InitializeComponent();
 
-      //Pie pie = new Pie();
-      //pie.Id = 1;
-      //pie.PieName = "Cherry pie";
-      //pie.Price = 20;
+      CherryPie = new Pie();
+      CherryPie.Id = 1;
+      CherryPie.PieName = "Cherry pie";
+      CherryPie.Price = 20;
+
+      this.BindingContext = CherryPie;
 
       //Binding pieNameBinding = new Binding();
       //pieNameBinding.Source = pie;
@@ -33,5 +44,10 @@ namespace BethanysPieShopStockApp
       //piePriceBinding.Path = "Price";
       //PriceEntry.SetBinding(Entry.TextProperty, piePriceBinding);
     }
+
+    //private void Button_Clicked(object sender, EventArgs eventArgs)
+    //{
+    //  pie.Price++;
+    //}
   }
 }
