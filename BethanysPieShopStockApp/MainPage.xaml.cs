@@ -18,7 +18,7 @@ namespace BethanysPieShopStockApp
   public partial class MainPage : ContentPage
   {
     // Fields
-    public Pie CherryPie { get; set; }
+    public Pie Pie { get; set; }
 
     /// <summary>
     /// Constructor.
@@ -27,12 +27,25 @@ namespace BethanysPieShopStockApp
     {
       InitializeComponent();
 
-      CherryPie = new Pie();
-      CherryPie.Id = 1;
-      CherryPie.PieName = "Cherry pie";
-      CherryPie.Price = 20;
+      Pie = new Pie
+      {
+        Id = 1,
+        Description = "Blah blah blah",
+        ImageUrl = "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjgsJSZhuHlAhUGvJ4KHZaICFMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.foodnetwork.com%2Frecipes%2Ffood-network-kitchen%2Fapple-pie-recipe-2011423&psig=AOvVaw1sQaERtaDfUGAI_LSU-R-W&ust=1573523543344626",
+        InStock = true,
+        AvailableFromDate = new DateTime(1981, 03, 14),
+        PieName = "Apple Pie",
+        Price = 20.95,
+      };
 
-      this.BindingContext = CherryPie;
+      this.BindingContext = Pie;
+
+      //CherryPie = new Pie();
+      //CherryPie.Id = 1;
+      //CherryPie.PieName = "Cherry pie";
+      //CherryPie.Price = 20;
+
+      //this.BindingContext = CherryPie;
 
       //Binding pieNameBinding = new Binding();
       //pieNameBinding.Source = pie;
@@ -45,9 +58,14 @@ namespace BethanysPieShopStockApp
       //PriceEntry.SetBinding(Entry.TextProperty, piePriceBinding);
     }
 
-    private void Button_Clicked(object sender, EventArgs eventArgs)
+    //private void Button_Clicked(object sender, EventArgs eventArgs)
+    //{
+    //  CherryPie.Price++;
+    //}
+
+    private async void SavePieButton_ClickedAsync(object sender, EventArgs eventArgs)
     {
-      CherryPie.Price++;
+      await DisplayAlert("Success", "Pie saved", "Done");
     }
   }
 }

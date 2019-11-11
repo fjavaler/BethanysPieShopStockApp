@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     x:Class="BethanysPieShopStockApp.MainPage">
     <ScrollView>
-        <Grid>
+        <Grid Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="150"/>
@@ -21,8 +21,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".4"/>
-                <ColumnDefinition Width=".6"/>
+                <ColumnDefinition Width=".4*"/>
+                <ColumnDefinition Width=".6*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="TitleLabel"
                    Text="Edit Pie"
@@ -34,6 +34,7 @@
                    Grid.Column="0"
                    Grid.Row="1"
                    Grid.ColumnSpan="2"
+                   Source="{Binding ImageUrl}"
                    Margin="10"
                    WidthRequest="200"
                    HeightRequest="200"
@@ -45,35 +46,40 @@
                    Style="{StaticResource SmallLabelStyle}"/>
             <Entry Grid.Row="2"
                    Grid.Column="1"
-                   Style="{StaticResource RegularEntry}"/>
+                   Style="{StaticResource RegularEntry}"
+                   Text="{Binding PieName, Mode=TwoWay}"/>
             <Label Text="Price"
                    Grid.Row="3"
                    Grid.Column="0"
                    Style="{StaticResource SmallLabelStyle}"/>
             <Entry Grid.Row="3"
                    Grid.Column="1"
-                   Style="{StaticResource RegularEntry}"/>
+                   Style="{StaticResource RegularEntry}"
+                   Text="{Binding Price, Mode=TwoWay}"/>
             <Label Text="Description"
                    Grid.Row="4"
                    Grid.Column="0"
                    Style="{StaticResource SmallLabelStyle}"/>
             <Editor Grid.Row="4"
                     Grid.Column="1"
-                    Style="{StaticResource RegularEditorStyle}"/>
+                    Style="{StaticResource RegularEditorStyle}"
+                    Text="{Binding Description, Mode=TwoWay}"/>
             <Label Text="In stock?"
                    Grid.Row="5"
                    Grid.Column="0"
                    Style="{StaticResource SmallLabelStyle}"/>
             <Switch Grid.Row="5"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+                    IsToggled="{Binding InStock, Mode=TwoWay}"/>
             <Label Text="Available date"
                    Grid.Row="6"
                    Grid.Column="0"
                    Style="{StaticResource SmallLabelStyle}"/>
             <DatePicker Grid.Row="6"
-                        Grid.Column="1"/>
+                        Grid.Column="1"
+                        Date="{Binding AvailableFromDate, Mode=TwoWay}"/>
             <Button x:Name="SavePieButton"
-                    Clicked="SavePieButton_Clicked"
+                    Clicked="SavePieButton_ClickedAsync"
                     Text="Save Pie"
                     Style="{StaticResource RegularButtonStyle}"
                     Grid.Row="7"
