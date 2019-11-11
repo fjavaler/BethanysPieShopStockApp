@@ -14,7 +14,11 @@ namespace BethanysPieShopStockApp.Model
     /// </summary>
     private int _id;
     private string _pieName;
+    private string _description;
     private double _price;
+    private string _imageUrl;
+    private bool _inStock;
+    private DateTime _availableFromDate;
 
     /// <summary>
     /// The Id property.
@@ -43,6 +47,19 @@ namespace BethanysPieShopStockApp.Model
     }
 
     /// <summary>
+    /// The description property.
+    /// </summary>
+    public String Description
+    {
+      get => _description;
+      set
+      {
+        _description = value;
+        OnPropertyChanged(nameof(Description));
+      }
+    }
+
+    /// <summary>
     /// The price property.
     /// </summary>
     public double Price
@@ -52,6 +69,45 @@ namespace BethanysPieShopStockApp.Model
       {
         _price = value;
         OnPropertyChanged(nameof(Price));
+      }
+    }
+
+    /// <summary>
+    /// The image URL property.
+    /// </summary>
+    public String ImageUrl
+    {
+      get => _imageUrl;
+      set
+      {
+        _imageUrl = value;
+        OnPropertyChanged(nameof(ImageUrl));
+      }
+    }
+
+    /// <summary>
+    /// The in stock property.
+    /// </summary>
+    public bool InStock
+    {
+      get => _inStock;
+      set
+      {
+        _inStock = value;
+        OnPropertyChanged(nameof(InStock));
+      }
+    }
+
+    /// <summary>
+    /// The available from property.
+    /// </summary>
+    public DateTime AvailableFromDate
+    {
+      get => _availableFromDate;
+      set
+      {
+        _availableFromDate = value;
+        OnPropertyChanged(nameof(AvailableFromDate));
       }
     }
 
@@ -70,7 +126,5 @@ namespace BethanysPieShopStockApp.Model
       // I.e. if (PropertyChanged != null).
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-
-
   }
 }
