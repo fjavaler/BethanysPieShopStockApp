@@ -7,34 +7,78 @@
     xmlns:model="clr-namespace:BethanysPieShopStockApp.Model"
     mc:Ignorable="d"
     x:Class="BethanysPieShopStockApp.MainPage">
-    <ContentPage.Resources>
-        <!--<ResourceDictionary>
-            <model:Pie Id="1" PieName="Apple pie" Price="20" x:Key="TheApplePie"/>
-        </ResourceDictionary>-->
-    </ContentPage.Resources>
-    <StackLayout>
-        <Grid Margin="20,50,20,10" x:Name="MainGrid">
+    <ScrollView>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width=".4"/>
+                <ColumnDefinition Width=".6"/>
             </Grid.ColumnDefinitions>
-
-            <!--Pie Name label and entry-->
-            <Label Grid.Row="0" Grid.Column="0" Text="Pie Name"/>
-            <Entry Grid.Row="0" Grid.Column="1" x:Name="NameEntry"
-                   Text="{Binding PieName, Mode=OneWay}"/>
-
-            <!--Price label and entry-->
-            <Label Grid.Row="1" Grid.Column="0" Text="Price"/>
-            <Entry Grid.Row="1" Grid.Column="1" x:Name="PriceEntry"
-                   Text="{Binding Price, Mode=TwoWay}"/>
-            <Button Grid.Row="2" Clicked="Button_Clicked" Grid.Column="0" Grid.ColumnSpan="2" Text="Add pie"/>
+            <Label x:Name="TitleLabel"
+                   Text="Edit Pie"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource TitleLabelStyle}"/>
+            <Image x:Name="PieImage"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Margin="10"
+                   WidthRequest="200"
+                   HeightRequest="200"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            <Label Text="Pie name"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Style="{StaticResource SmallLabelStyle}"/>
+            <Entry Grid.Row="2"
+                   Grid.Column="1"
+                   Style="{StaticResource RegularEntry}"/>
+            <Label Text="Price"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Style="{StaticResource SmallLabelStyle}"/>
+            <Entry Grid.Row="3"
+                   Grid.Column="1"
+                   Style="{StaticResource RegularEntry}"/>
+            <Label Text="Description"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   Style="{StaticResource SmallLabelStyle}"/>
+            <Editor Grid.Row="4"
+                    Grid.Column="1"
+                    Style="{StaticResource RegularEditorStyle}"/>
+            <Label Text="In stock?"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                   Style="{StaticResource SmallLabelStyle}"/>
+            <Switch Grid.Row="5"
+                    Grid.Column="1"/>
+            <Label Text="Available date"
+                   Grid.Row="6"
+                   Grid.Column="0"
+                   Style="{StaticResource SmallLabelStyle}"/>
+            <DatePicker Grid.Row="6"
+                        Grid.Column="1"/>
+            <Button x:Name="SavePieButton"
+                    Clicked="SavePieButton_Clicked"
+                    Text="Save Pie"
+                    Style="{StaticResource RegularButtonStyle}"
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
         </Grid>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>
