@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BethanysPieShopStockApp.Model;
+using BethanysPieShopStockApp.ViewModels;
 using Xamarin.Forms;
 
 namespace BethanysPieShopStockApp
@@ -17,8 +18,9 @@ namespace BethanysPieShopStockApp
   [DesignTimeVisible(false)]
   public partial class MainPage : ContentPage
   {
-    // Fields
+    // Properties
     public Pie Pie { get; set; }
+    public MainPageViewModel MainPageViewModel { get; set; }
 
     /// <summary>
     /// Constructor.
@@ -27,18 +29,22 @@ namespace BethanysPieShopStockApp
     {
       InitializeComponent();
 
-      Pie = new Pie
+      MainPageViewModel = new MainPageViewModel()
       {
-        Id = 1,
-        Description = "Blah blah blah",
-        ImageUrl = "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjgsJSZhuHlAhUGvJ4KHZaICFMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.foodnetwork.com%2Frecipes%2Ffood-network-kitchen%2Fapple-pie-recipe-2011423&psig=AOvVaw1sQaERtaDfUGAI_LSU-R-W&ust=1573523543344626",
-        InStock = true,
-        AvailableFromDate = new DateTime(1981, 03, 14),
-        PieName = "Apple Pie",
-        Price = 20.95,
+        Pie = new Pie
+        {
+          Id = 1,
+          Description = "Blah blah blah",
+          ImageUrl = "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjgsJSZhuHlAhUGvJ4KHZaICFMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.foodnetwork.com%2Frecipes%2Ffood-network-kitchen%2Fapple-pie-recipe-2011423&psig=AOvVaw1sQaERtaDfUGAI_LSU-R-W&ust=1573523543344626",
+          InStock = true,
+          AvailableFromDate = new DateTime(1981, 03, 14),
+          PieName = "Apple Pie",
+          Price = 20.95,
+        },
+        UserName = "Fred"
       };
 
-      this.BindingContext = Pie;
+      this.BindingContext = this;
 
       //CherryPie = new Pie();
       //CherryPie.Id = 1;
