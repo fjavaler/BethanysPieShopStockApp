@@ -34,7 +34,7 @@
             TextColor="{Binding Price, Converter={StaticResource LocalDoubleToColorConverter}, ConverterParameter=16}"
             Detail="{Binding Price, StringFormat='{0:c}'}"
             ImageSource="{Binding ImageUrl, TargetNullValue='https://gillcleerenpluralsight.blob.core.windows.net/files/default-pie.png', Converter={StaticResource Key=LocalDoNothingConverter} }" />
-            <!--Detail="{Binding Price, Converter={StaticResource LocalCurrencyConverter}}"--> 
+            <!--Detail="{Binding Price, Converter={StaticResource LocalCurrencyConverter}}"-->
         </DataTemplate>
       </ListView.ItemTemplate>
       
