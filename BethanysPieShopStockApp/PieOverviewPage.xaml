@@ -1,14 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="BethanysPieShopStockApp.PieOverviewPage"
-    BackgroundImageSource="patternwide.png"
-    Padding="5">
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  x:Class="BethanysPieShopStockApp.PieOverviewPage"
+  BackgroundImageSource="patternwide.png"
+  Padding="5">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition
+        Height="*" />
+      <RowDefinition
+        Height="50" />
+    </Grid.RowDefinitions>
     <ListView
-        VerticalOptions="FillAndExpand"
-        x:Name="PiesListView"
-        CachingStrategy="RecycleElement">
+      Grid.Row="0"
+      VerticalOptions="FillAndExpand"
+      x:Name="PiesListView"
+      CachingStrategy="RecycleElement"
+      ItemTapped="PiesListView_ItemTappedAsync">
+     
+      <!--<ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell
+            Text="{Binding PieName}"
+            Detail="{Binding Price}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>-->
 
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ImageCell
+            Text="{Binding PieName}"
+            TextColor="{Binding Price, Converter={StaticResource LocalDoubleToColorConverter}, ConverterParameter=16}"
+            Detail="{Binding Price, StringFormat='{0:c}'}"
+            ImageSource="{Binding ImageUrl, TargetNullValue='https://gillcleerenpluralsight.blob.core.windows.net/files/default-pie.png', Converter={StaticResource Key=LocalDoNothingConverter} }" />
+            <!--Detail="{Binding Price, Converter={StaticResource LocalCurrencyConverter}}"--> 
+        </DataTemplate>
+      </ListView.ItemTemplate>
+      
     </ListView>
+    <Button
+      x:Name="AddPieButton"
+      Clicked="AddPieButton_Clicked"
+      Text="Add Pie"
+      Style="{StaticResource RegularButtonStyle}"
+      Grid.Row="1" />
+  </Grid>
 </ContentPage>

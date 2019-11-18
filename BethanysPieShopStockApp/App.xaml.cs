@@ -10,7 +10,7 @@ namespace BethanysPieShopStockApp
     {
       InitializeComponent();
 
-      MainPage = new PieOverviewPage();
+      MainPage = new NavigationPage(new PieOverviewPage());
     }
 
     protected override void OnStart()
