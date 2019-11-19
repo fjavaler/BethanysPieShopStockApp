@@ -2,31 +2,34 @@
 <ContentPage
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:viewmodel="clr-namespace:BethanysPieShopStockApp.ViewModels"
   x:Class="BethanysPieShopStockApp.PieOverviewPage"
   BackgroundImageSource="patternwide.png"
   Padding="5">
+  
+  <!--Explicit binding to ViewModel-->
+  <ContentPage.BindingContext>
+    <viewmodel:PieOverviewViewModel />
+  </ContentPage.BindingContext>
+  
+  <!--Main Grid-->
   <Grid>
+    <!--Row definitions-->
     <Grid.RowDefinitions>
       <RowDefinition
         Height="*" />
       <RowDefinition
         Height="50" />
     </Grid.RowDefinitions>
+    
+    <!--The listview-->
     <ListView
       Grid.Row="0"
       VerticalOptions="FillAndExpand"
       x:Name="PiesListView"
       CachingStrategy="RecycleElement"
-      ItemTapped="PiesListView_ItemTappedAsync">
-     
-      <!--<ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell
-            Text="{Binding PieName}"
-            Detail="{Binding Price}" />
-        </DataTemplate>
-      </ListView.ItemTemplate>-->
-
+      ItemTapped="PiesListView_ItemTappedAsync"
+      ItemsSource="{Binding Pies}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ImageCell
@@ -34,16 +37,17 @@
             TextColor="{Binding Price, Converter={StaticResource LocalDoubleToColorConverter}, ConverterParameter=16}"
             Detail="{Binding Price, StringFormat='{0:c}'}"
             ImageSource="{Binding ImageUrl, TargetNullValue='https://gillcleerenpluralsight.blob.core.windows.net/files/default-pie.png', Converter={StaticResource Key=LocalDoNothingConverter} }" />
-            <!--Detail="{Binding Price, Converter={StaticResource LocalCurrencyConverter}}"-->
         </DataTemplate>
       </ListView.ItemTemplate>
-      
     </ListView>
+    
+    <!--The Add a Pie button-->
     <Button
       x:Name="AddPieButton"
-      Clicked="AddPieButton_Clicked"
-      Text="Add Pie"
+      Text="Add a Pie"
       Style="{StaticResource RegularButtonStyle}"
       Grid.Row="1" />
+      <!--Clicked="AddPieButton_Clicked"-->
+    
   </Grid>
 </ContentPage>

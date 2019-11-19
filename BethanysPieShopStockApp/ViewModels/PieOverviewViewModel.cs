@@ -24,29 +24,5 @@ namespace BethanysPieShopStockApp.ViewModels
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-
-    ///// <summary>
-    ///// This method is executed when the AddPieButton is clicked.
-    ///// </summary>
-    ///// <param name="sender"></param>
-    ///// <param name="e"></param>
-    //private void AddPieButton_Clicked(object sender, EventArgs e)
-    //{
-    //  var newPie = new Pie
-    //  {
-    //    PieName = "Pumpkin Pie",
-    //    Price = 12.95,
-    //    Description = "Blah, blah, blah",
-    //    ImageUrl = imageUrl,
-    //    InStock = true,
-    //  };
-
-    //  Pies.Add(newPie);
-    //}
-
-    //private async void PiesListView_ItemTappedAsync(object sender, ItemTappedEventArgs e)
-    //{
-    //  await this.Navigation.PushAsync(new MainPage(e.Item as Pie));
-    //}
   }
 }
